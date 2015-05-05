@@ -10,35 +10,15 @@
         private StringBuilder Output = new StringBuilder();
         private string Inputstring;
 
-        private List<string> AllLettersCombinations = new List<string>();
+        private readonly AllLettersCombinationsGenerator _allLettersCombinationsGenerator = new AllLettersCombinationsGenerator();
+
+        private List<string> _allLettersCombinations;
 
         public IEnumerable<string> Generate(string originalString)
         {
-            Inputstring = originalString;
-
-            Combine();
+            _allLettersCombinations = _allLettersCombinationsGenerator.Generate(originalString).ToList();
 
             return Enumerable.Empty<string>();
-        }
-
-        public void Combine()
-        {
-            Combine(0);
-        }
-
-        // http://javahungry.blogspot.com/2014/02/algorithm-for-combinations-of-string-java-code-with-example.html
-        private void Combine(int start)
-        {
-            for (int i = start; i < Inputstring.Length; ++i)
-            {
-                Output.Append(Inputstring[i]);
-                AllLettersCombinations.Add(Output.ToString());
-                if (i < Inputstring.Length)
-                {
-                    Combine(i + 1);
-                }
-                Output.Length = Output.Length - 1;
-            }
         }
     }
 }
