@@ -1,0 +1,7 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/KataAnagram/KataAnagram/KataAnagram/bin/Debug
+/KataAnagram/KataAnagram/KataAnagram/obj/Debug
+*.suo
