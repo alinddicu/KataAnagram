@@ -1,12 +1,13 @@
-﻿namespace KataAnagram
-{
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-    public class TwoWordAnagramGenerator
+namespace KataAnagram
+{
+    public class AllLettersCombinationsGenerator
     {
-        private static readonly WordDictionary WordDictionary = new WordDictionary();
         private StringBuilder Output = new StringBuilder();
         private string Inputstring;
 
@@ -18,7 +19,7 @@
 
             Combine();
 
-            return Enumerable.Empty<string>();
+            return AllLettersCombinations;
         }
 
         public void Combine()

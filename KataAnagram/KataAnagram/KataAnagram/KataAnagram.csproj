@@ -53,6 +53,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="AllLettersCombinationsGenerator.cs" />
+    <Compile Include="AllLettersCombinationsGeneratorTest.cs" />
     <Compile Include="WordDictionary.cs" />
     <Compile Include="TwoWordAnagramGenerator.cs" />
     <Compile Include="TwoWordAnagramGeneratorTest.cs" />

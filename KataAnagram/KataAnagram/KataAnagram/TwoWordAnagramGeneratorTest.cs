@@ -73,13 +73,13 @@
         }
 
         [TestMethod]
-        public void GiveWordRareWhenGenerateThenOutputIsCorrect()
+        public void GivenWordFearWhenGenerateThenOutputIsCorrect()
         {
             var output = _generator.Generate("RARE").ToArray();
-            var checkedEx = new[] { "ER AR", "RE AR", "RARE", "REAR" };
+            var checkedEx = new[] { /*"EF AR", */"FA ER", "FA RE", "FEAR", "FARE", "FRAE" };
 
-            Check.That(output.Count()).IsEqualTo(checkedEx.Count());
-            Check.That(output).Contains(checkedEx);
+            Check.That(checkedEx.Count()).IsEqualTo(output.Count());
+            Check.That(checkedEx).Contains(output);
         }
     }
 }
