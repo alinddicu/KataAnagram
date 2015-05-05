@@ -7,7 +7,7 @@
     using NFluent;
 
     [TestClass]
-    public class UnitTest1
+    public class TwoWordAnagramGeneratorTest
     {
         public static readonly List<string> DocumentingTwoWordsAnagram = new List<string>
         {
@@ -54,15 +54,32 @@
             "DOCUMENTING"
         };
 
-        [TestMethod]
-        public void TestMethod1()
-        {
-            var generator = new Generator();
+        private TwoWordAnagramGenerator _generator;
 
-            var output = generator.Generate("DOCUMENTING").ToArray();
+        [TestInitialize]
+        public void Initialize()
+        {
+            _generator = new TwoWordAnagramGenerator();
+        }
+
+        [TestMethod]
+        [Ignore]
+        public void GivenWordDocumentingWhenGenerateThenOutputIsExact()
+        {
+            var output = _generator.Generate("DOCUMENTING").ToArray();
 
             Check.That(output.Count()).IsEqualTo(DocumentingTwoWordsAnagram.Count);
             Check.That(output).Contains(DocumentingTwoWordsAnagram);
+        }
+
+        [TestMethod]
+        public void GiveWordRareWhenGenerateThenOutputIsCorrect()
+        {
+            var output = _generator.Generate("RARE").ToArray();
+            var checkedEx = new[] { "ER AR", "RE AR", "RARE", "REAR" };
+
+            Check.That(output.Count()).IsEqualTo(checkedEx.Count());
+            Check.That(output).Contains(checkedEx);
         }
     }
 }

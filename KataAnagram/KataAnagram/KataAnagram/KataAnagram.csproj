@@ -53,12 +53,18 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="Generator.cs" />
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="WordDictionary.cs" />
+    <Compile Include="TwoWordAnagramGenerator.cs" />
+    <Compile Include="TwoWordAnagramGeneratorTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="WordDictionary.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
