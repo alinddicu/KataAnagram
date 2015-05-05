@@ -76,7 +76,7 @@
         public void GivenWordFearWhenGenerateThenOutputIsCorrect()
         {
             var output = _generator.Generate("RARE").ToArray();
-            var checkedEx = new[] { /*"EF AR", */"FA ER", "FA RE", "FEAR", "FARE", "FRAE" };
+            var checkedEx = new[] { "ER AR", "RE AR", "RARE", "REAR" };
 
             Check.That(checkedEx.Count()).IsEqualTo(output.Count());
             Check.That(checkedEx).Contains(output);

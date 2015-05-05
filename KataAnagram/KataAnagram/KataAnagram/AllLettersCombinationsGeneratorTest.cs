@@ -15,11 +15,19 @@
         }
 
         [TestMethod]
+        public void GivenWxyzWhenGenerateThenReturnAllCombinations()
+        {
+            var combinations = _generator.Generate("wxyz");
+
+            Check.That(combinations).ContainsExactly(new[] { "w", "wx", "wxy", "wxyz", "wxz", "wy", "wyz", "wz", "x", "xy", "xyz", "xz", "y", "yz", "z" });
+        }
+
+        [TestMethod]
         public void GivenXyxWhenGenerateThenReturnAllCombinations()
         {
             var combinations = _generator.Generate("xyx");
 
-            Check.That(combinations).ContainsExactly(new[] { "x", "xy", "xyx", "xx", "y", "yx", "x" });
+            Check.That(combinations).ContainsExactly(new[] { "", "x", "y", "xy", "xx", "yx" });
         }
     }
 }

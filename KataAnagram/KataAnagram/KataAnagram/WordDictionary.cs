@@ -2,6 +2,7 @@
 {
     using System.Collections.Generic;
     using System.IO;
+    using System.Linq;
 
     public class WordDictionary
     {
@@ -9,7 +10,7 @@
 
         public WordDictionary()
         {
-            _words = new HashSet<string>(File.ReadAllLines("WordDictionary.txt"));
+            _words = new HashSet<string>(File.ReadAllLines("WordDictionary.txt").Select(o => o.ToUpper()));
         }
 
         public bool Contains(string word)

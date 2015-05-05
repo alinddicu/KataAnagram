@@ -35,6 +35,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Combinatorics">
+      <HintPath>..\packages\Combinatorics.1.0.3.2\lib\net40\Combinatorics.dll</HintPath>
+    </Reference>
     <Reference Include="NFluent">
       <HintPath>..\packages\NFluent.1.3.1.0\lib\net40\NFluent.dll</HintPath>
     </Reference>
@@ -55,6 +58,7 @@
   <ItemGroup>
     <Compile Include="AllLettersCombinationsGenerator.cs" />
     <Compile Include="AllLettersCombinationsGeneratorTest.cs" />
+    <Compile Include="IEnumerableExtensions.cs" />
     <Compile Include="WordDictionary.cs" />
     <Compile Include="TwoWordAnagramGenerator.cs" />
     <Compile Include="TwoWordAnagramGeneratorTest.cs" />

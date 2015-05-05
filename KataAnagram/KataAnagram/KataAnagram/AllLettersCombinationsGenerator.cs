@@ -1,11 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace KataAnagram
+﻿namespace KataAnagram
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+    using Combinatorics.Collections;
+
     public class AllLettersCombinationsGenerator
     {
         private StringBuilder _stringBuilder = new StringBuilder();
@@ -15,26 +14,16 @@ namespace KataAnagram
 
         public IEnumerable<string> Generate(string originalString)
         {
-            _inputstring = originalString;
+            var set = originalString
+                .ToCharArray()
+                .Distinct()
+                .ToArray();
 
-            Combine(0);
+            var permutations = new Permutations<char>(set);
 
-            return _allLettersCombinations;
-        }
+            //permutations.
 
-        // http://javahungry.blogspot.com/2014/02/algorithm-for-combinations-of-string-java-code-with-example.html
-        private void Combine(int start)
-        {
-            for (int i = start; i < _inputstring.Length; ++i)
-            {
-                _stringBuilder.Append(_inputstring[i]);
-                _allLettersCombinations.Add(_stringBuilder.ToString());
-                if (i < _inputstring.Length)
-                {
-                    Combine(i + 1);
-                }
-                _stringBuilder.Length = _stringBuilder.Length - 1;
-            }
+            return Enumerable.Empty<string>();
         }
     }
 }
