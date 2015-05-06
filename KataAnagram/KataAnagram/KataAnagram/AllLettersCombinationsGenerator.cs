@@ -15,23 +15,31 @@
         // with doc : http://www.codeproject.com/Articles/26050/Permutations-Combinations-and-Variations-using-C-G
         public IEnumerable<string> Generate(string originalString)
         {
+            var results = new List<string>();
+
             var set = originalString
                 .ToCharArray()
-                .Distinct()
                 .ToArray();
 
-            var combinations = new Combinations<char>(set, 2);
-
-            foreach (var c in combinations)
+            var variationsOf1 = new Variations<char>(set, 1, GenerateOption.WithoutRepetition);
+            foreach (var v in variationsOf1)
             {
-                //for (int i = 0; i < set.Count(); i++)
-                //{
-                yield return string.Join(string.Empty, new[] { c[0], c[1] });
-                //}
-                //Console.WriteLine(String.Format("{{{0} {1} {2}}}", c[0], c[1], c[2]));
+                results.Add(v[0].ToString());
             }
 
-            //return Enumerable.Empty<string>();
+            var variationsOf2 = new Variations<char>(set, 2, GenerateOption.WithoutRepetition);
+            foreach (var v in variationsOf2)
+            {
+                results.Add(string.Join(string.Empty, new[] { v[0], v[1] }));
+            }
+
+            var variationsOf3 = new Variations<char>(set, 3, GenerateOption.WithoutRepetition);
+            foreach (var v in variationsOf3)
+            {
+                results.Add(string.Join(string.Empty, new[] { v[0], v[1], v[2] }));
+            }
+
+            return results.Distinct();
         }
     }
 }

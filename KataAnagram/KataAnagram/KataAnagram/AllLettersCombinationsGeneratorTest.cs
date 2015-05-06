@@ -16,11 +16,12 @@
         }
 
         [TestMethod]
-        public void GivenWxyzWhenGenerateThenReturnAllCombinations()
+        public void GivenXyWhenGenerateThenReturnAllCombinations()
         {
-            var combinations = _generator.Generate("wxyz");
+            var combinations = _generator.Generate("xy").ToList();
 
-            Check.That(combinations).ContainsExactly(new[] { "w", "wx", "wxy", "wxyz", "wxz", "wy", "wyz", "wz", "x", "xy", "xyz", "xz", "y", "yz", "z" });
+            Check.That(combinations).HasSize(4);
+            Check.That(combinations).ContainsExactly(new[] { "x", "y", "xy", "yx" });
         }
 
         [TestMethod]
@@ -28,7 +29,8 @@
         {
             var combinations = _generator.Generate("xyx").ToList();
 
-            Check.That(combinations).ContainsExactly(new[] { "", "x", "y", "xy", "xx", "yx" });
+            Check.That(combinations).HasSize(8);
+            Check.That(combinations).Contains(new[] { "x", "y", "xx", "xy", "yx", "xyx", "xxy", "yxx" });
         }
     }
 }
