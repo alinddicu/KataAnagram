@@ -21,22 +21,37 @@
                 .ToCharArray()
                 .ToArray();
 
-            var variationsOf1 = new Variations<char>(set, 1, GenerateOption.WithoutRepetition);
-            foreach (var v in variationsOf1)
-            {
-                results.Add(v[0].ToString());
-            }
+            //var variationsOf1 = new Variations<char>(set, 1, GenerateOption.WithoutRepetition);
+            //foreach (var v in variationsOf1)
+            //{
+            //    results.Add(v[0].ToString());
+            //}
 
-            var variationsOf2 = new Variations<char>(set, 2, GenerateOption.WithoutRepetition);
-            foreach (var v in variationsOf2)
-            {
-                results.Add(string.Join(string.Empty, new[] { v[0], v[1] }));
-            }
+            //var variationsOf2 = new Variations<char>(set, 2, GenerateOption.WithoutRepetition);
+            //foreach (var v in variationsOf2)
+            //{
+            //    results.Add(string.Join(string.Empty, new[] { v[0], v[1] }));
+            //}
 
-            var variationsOf3 = new Variations<char>(set, 3, GenerateOption.WithoutRepetition);
-            foreach (var v in variationsOf3)
+            //var variationsOf3 = new Variations<char>(set, 3, GenerateOption.WithoutRepetition);
+            //foreach (var v in variationsOf3)
+            //{
+            //    results.Add(string.Join(string.Empty, new[] { v[0], v[1], v[2] }));
+            //}
+
+            for (int lowerIndex = 1; lowerIndex <= set.Count(); lowerIndex++)
             {
-                results.Add(string.Join(string.Empty, new[] { v[0], v[1], v[2] }));
+                var variations = new Variations<char>(set, lowerIndex, GenerateOption.WithoutRepetition);
+                foreach (var v in variations)
+                {
+                    var vs = new List<char>();
+                    for (int i = 0; i < lowerIndex; i++)
+                    {
+                        vs.Add(v[i]);
+                    }
+
+                    results.Add(string.Join(string.Empty, vs.ToArray()));
+                }
             }
 
             return results.Distinct();
