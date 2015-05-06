@@ -21,24 +21,6 @@
                 .ToCharArray()
                 .ToArray();
 
-            //var variationsOf1 = new Variations<char>(set, 1, GenerateOption.WithoutRepetition);
-            //foreach (var v in variationsOf1)
-            //{
-            //    results.Add(v[0].ToString());
-            //}
-
-            //var variationsOf2 = new Variations<char>(set, 2, GenerateOption.WithoutRepetition);
-            //foreach (var v in variationsOf2)
-            //{
-            //    results.Add(string.Join(string.Empty, new[] { v[0], v[1] }));
-            //}
-
-            //var variationsOf3 = new Variations<char>(set, 3, GenerateOption.WithoutRepetition);
-            //foreach (var v in variationsOf3)
-            //{
-            //    results.Add(string.Join(string.Empty, new[] { v[0], v[1], v[2] }));
-            //}
-
             for (int lowerIndex = 1; lowerIndex <= set.Count(); lowerIndex++)
             {
                 var variations = new Variations<char>(set, lowerIndex, GenerateOption.WithoutRepetition);
