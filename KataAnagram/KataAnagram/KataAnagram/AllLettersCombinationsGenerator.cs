@@ -12,10 +12,12 @@
 
         private List<string> _allLettersCombinations = new List<string>();
 
+        // with doc : http://www.codeproject.com/Articles/26050/Permutations-Combinations-and-Variations-using-C-G
         public IEnumerable<string> Generate(string originalString)
         {
             var set = originalString
                 .ToCharArray()
+                .Distinct()
                 .ToArray();
 
             var combinations = new Combinations<char>(set, 2);
