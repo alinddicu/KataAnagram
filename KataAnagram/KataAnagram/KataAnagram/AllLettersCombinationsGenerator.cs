@@ -16,14 +16,20 @@
         {
             var set = originalString
                 .ToCharArray()
-                .Distinct()
                 .ToArray();
 
-            var permutations = new Permutations<char>(set);
+            var combinations = new Combinations<char>(set, 2);
 
-            //permutations.
+            foreach (var c in combinations)
+            {
+                //for (int i = 0; i < set.Count(); i++)
+                //{
+                yield return string.Join(string.Empty, new[] { c[0], c[1] });
+                //}
+                //Console.WriteLine(String.Format("{{{0} {1} {2}}}", c[0], c[1], c[2]));
+            }
 
-            return Enumerable.Empty<string>();
+            //return Enumerable.Empty<string>();
         }
     }
 }

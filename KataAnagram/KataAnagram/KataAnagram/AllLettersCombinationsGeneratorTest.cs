@@ -1,5 +1,6 @@
 ﻿namespace KataAnagram
 {
+    using System.Linq;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using NFluent;
 
@@ -25,7 +26,7 @@
         [TestMethod]
         public void GivenXyxWhenGenerateThenReturnAllCombinations()
         {
-            var combinations = _generator.Generate("xyx");
+            var combinations = _generator.Generate("xyx").ToList();
 
             Check.That(combinations).ContainsExactly(new[] { "", "x", "y", "xy", "xx", "yx" });
         }
