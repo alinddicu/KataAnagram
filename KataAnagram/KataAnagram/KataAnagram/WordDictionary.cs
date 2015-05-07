@@ -17,7 +17,7 @@
 
         public bool Contains(string word)
         {
-            return _words.SingleOrDefault(w => string.Equals(w, word, StringComparison.InvariantCultureIgnoreCase)) != null;
+            return _words.Count(w => string.Equals(w, word, StringComparison.InvariantCultureIgnoreCase)) >= 1;
         }
     }
 }
