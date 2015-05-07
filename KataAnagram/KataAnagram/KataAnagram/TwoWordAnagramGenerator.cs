@@ -36,7 +36,7 @@
                 }
             }
 
-            return anagrams.Distinct();
+            return anagrams;
         }
 
         private static bool AreCombinationsComplementary(string originalString, string combination1, string combination2)
@@ -45,10 +45,6 @@
             var comb1 = combination1.ToCharArray().ToList();
             var comb2 = combination2.ToCharArray().ToList();
             var combConcatResult = comb1.Concat(comb2).ToList();
-
-            //return original.Count == (comb1.Count + comb2.Count)
-            //    && !original.Except(combConcatResult).Any()
-            //    && !combConcatResult.Except(original).Any();
 
             return original.OrderBy(c => c).SequenceEqual(combConcatResult.OrderBy(c => c));
         }
