@@ -17,7 +17,7 @@
         {
             var anagrams = new List<string>();
 
-            _allLettersCombinations = _allLettersCombinationsGenerator.Generate(originalString).ToList();
+            _allLettersCombinations = _allLettersCombinationsGenerator.Generate(originalString).Distinct().ToList();
             _allLettersCombinations.Add(string.Empty);
 
             foreach (var combination1 in _allLettersCombinations)
@@ -35,7 +35,7 @@
                             }
 
                             var anagram2 = combination1 + combination2;
-                            if (!anagrams.Contains(anagram2))
+                            if (!anagrams.Contains(anagram2) && WordDictionary.Contains(anagram2))
                             {
                                 anagrams.Add(anagram2);
                             }
@@ -58,7 +58,7 @@
             //    && !original.Except(combConcatResult).Any()
             //    && !combConcatResult.Except(original).Any();
 
-            return original.SequenceEqual(combConcatResult);
+            return original.OrderBy(c => c).SequenceEqual(combConcatResult.OrderBy(c => c));
         }
     }
 }

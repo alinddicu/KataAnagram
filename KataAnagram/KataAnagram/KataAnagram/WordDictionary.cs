@@ -1,6 +1,8 @@
 ﻿namespace KataAnagram
 {
+    using System;
     using System.Collections.Generic;
+    using System.Globalization;
     using System.IO;
     using System.Linq;
 
@@ -15,7 +17,7 @@
 
         public bool Contains(string word)
         {
-            return _words.Contains(word);
+            return _words.SingleOrDefault(w => string.Equals(w, word, StringComparison.InvariantCultureIgnoreCase)) != null;
         }
     }
 }

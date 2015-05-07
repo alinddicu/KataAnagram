@@ -32,11 +32,9 @@
                         vs.Add(v[i]);
                     }
 
-                    results.Add(string.Join(string.Empty, vs.ToArray()));
+                    yield return string.Join(string.Empty, vs.ToArray());
                 }
             }
-
-            return results.Distinct();
         }
     }
 }
