@@ -16,6 +16,7 @@
         }
 
         [TestMethod]
+        [Ignore]
         public void GivenXyWhenGenerateThenReturnAllCombinations()
         {
             var combinations = _generator.Generate("xy").ToList();
@@ -25,6 +26,7 @@
         }
 
         [TestMethod]
+        [Ignore]
         public void GivenXyxWhenGenerateThenReturnAllCombinations()
         {
             var combinations = _generator.Generate("xyx").ToList();

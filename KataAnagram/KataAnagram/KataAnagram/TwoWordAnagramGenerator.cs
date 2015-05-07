@@ -9,42 +9,34 @@
     {
         private static readonly WordDictionary WordDictionary = new WordDictionary();
 
-        private readonly AllLettersCombinationsGenerator _allLettersCombinationsGenerator = new AllLettersCombinationsGenerator();
-
-        private List<string> _allLettersCombinations;
-
-        public IEnumerable<string> Generate(string originalString)
+        public IEnumerable<string> Generate(string baseWord)
         {
             var anagrams = new List<string>();
 
-            _allLettersCombinations = _allLettersCombinationsGenerator.Generate(originalString).Distinct().ToList();
-            _allLettersCombinations.Add(string.Empty);
+            var _allPossibleSubWords = new AllPossibleSubWordsGenerator().Generate(baseWord).ToList();
 
-            foreach (var combination1 in _allLettersCombinations)
+            foreach (var combination1 in _allPossibleSubWords)
             {
-                foreach (var combination2 in _allLettersCombinations)
+                foreach (var combination2 in _allPossibleSubWords)
                 {
-                    if (AreCombinationsComplementary(originalString, combination1, combination2))
+                    if (AreCombinationsComplementary(baseWord, combination1, combination2))
                     {
-                        if (WordDictionary.Contains(combination1) && WordDictionary.Contains(combination2))
+                        var anagram1 = combination1 + " " + combination2;
+                        if (!anagrams.Contains(anagram1))
                         {
-                            var anagram1 = combination1 + " " + combination2;
-                            if (!anagrams.Contains(anagram1))
-                            {
-                                anagrams.Add(anagram1);
-                            }
+                            anagrams.Add(anagram1);
+                        }
 
-                            var anagram2 = combination1 + combination2;
-                            if (!anagrams.Contains(anagram2) && WordDictionary.Contains(anagram2))
-                            {
-                                anagrams.Add(anagram2);
-                            }
+                        var anagram2 = combination1 + combination2;
+                        if (!anagrams.Contains(anagram2) && WordDictionary.Contains(anagram2))
+                        {
+                            anagrams.Add(anagram2);
                         }
                     }
                 }
             }
 
-            return anagrams;
+            return anagrams.Distinct();
         }
 
         private static bool AreCombinationsComplementary(string originalString, string combination1, string combination2)

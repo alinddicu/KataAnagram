@@ -63,6 +63,7 @@
         }
 
         [TestMethod]
+        [Ignore]
         public void GivenWordDocumentingWhenGenerateThenOutputIsExact()
         {
             var output = _generator.Generate("DOCUMENTING").ToArray();
@@ -72,7 +73,6 @@
         }
 
         [TestMethod]
-        [Ignore]
         public void GivenWordRareWhenGenerateThenOutputIsCorrect()
         {
             var output = _generator.Generate("RARE").OrderBy(o => o).ToList();
