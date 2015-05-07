@@ -56,14 +56,18 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="AllLettersCombinationsGenerator.cs" />
-    <Compile Include="AllLettersCombinationsGeneratorTest.cs" />
-    <Compile Include="AllPossibleSubWordsGenerator.cs" />
-    <Compile Include="AllPossibleSubWordsGeneratorTest.cs" />
-    <Compile Include="IEnumerableExtensions.cs" />
+    <Compile Include="V1\AllLettersCombinationsGenerator.cs" />
+    <Compile Include="V1\AllLettersCombinationsGeneratorTest.cs" />
+    <Compile Include="V1\AllPossibleSubWordsGenerator.cs" />
+    <Compile Include="V1\AllPossibleSubWordsGeneratorTest.cs" />
+    <Compile Include="V1\IEnumerableExtensions.cs" />
+    <Compile Include="V2\AllDictionaryWordsInOriginalWordFinder.cs" />
+    <Compile Include="V2\AllDictionaryWordsInOriginalWordFinderTest.cs" />
+    <Compile Include="V2\TwoWordAnagramGenerator.cs" />
+    <Compile Include="V2\TwoWordAnagramGeneratorTest.cs" />
     <Compile Include="WordDictionary.cs" />
-    <Compile Include="TwoWordAnagramGenerator.cs" />
-    <Compile Include="TwoWordAnagramGeneratorTest.cs" />
+    <Compile Include="V1\TwoWordAnagramGenerator.cs" />
+    <Compile Include="V1\TwoWordAnagramGeneratorTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

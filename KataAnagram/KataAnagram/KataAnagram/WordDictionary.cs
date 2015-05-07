@@ -8,16 +8,16 @@
 
     public class WordDictionary
     {
-        private readonly HashSet<string> _words;
-
         public WordDictionary()
         {
-            _words = new HashSet<string>(File.ReadAllLines("WordDictionary.txt").Select(o => o.ToUpper()));
+            Words = new HashSet<string>(File.ReadAllLines("WordDictionary.txt").Select(o => o.ToUpper()));
         }
+
+        public IEnumerable<string> Words { get; private set; }
 
         public bool Contains(string word)
         {
-            return _words.Count(w => string.Equals(w, word, StringComparison.InvariantCultureIgnoreCase)) >= 1;
+            return Words.Count(w => string.Equals(w, word, StringComparison.InvariantCultureIgnoreCase)) >= 1;
         }
     }
 }
