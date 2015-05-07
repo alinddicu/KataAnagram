@@ -58,6 +58,8 @@
   <ItemGroup>
     <Compile Include="AllLettersCombinationsGenerator.cs" />
     <Compile Include="AllLettersCombinationsGeneratorTest.cs" />
+    <Compile Include="AllPossibleSubWordsGenerator.cs" />
+    <Compile Include="AllPossibleSubWordsGeneratorTest.cs" />
     <Compile Include="IEnumerableExtensions.cs" />
     <Compile Include="WordDictionary.cs" />
     <Compile Include="TwoWordAnagramGenerator.cs" />

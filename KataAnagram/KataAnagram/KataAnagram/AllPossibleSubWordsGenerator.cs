@@ -2,16 +2,17 @@
 {
     using System.Collections.Generic;
     using System.Linq;
-    using System.Text;
     using Combinatorics.Collections;
 
-    public class AllLettersCombinationsGenerator
+    public class AllPossibleSubWordsGenerator
     {
+        private static readonly WordDictionary WordDictionary = new WordDictionary();
+
+        private readonly HashSet<string> _subWords = new HashSet<string>();
+
         // with doc : http://www.codeproject.com/Articles/26050/Permutations-Combinations-and-Variations-using-C-G
         public IEnumerable<string> Generate(string originalString)
         {
-            var results = new List<string>();
-
             var set = originalString
                 .ToCharArray()
                 .ToArray();
@@ -27,9 +28,15 @@
                         vs.Add(v[i]);
                     }
 
-                    yield return string.Join(string.Empty, vs.ToArray());
+                    var subWordCandidate = string.Join(string.Empty, vs.ToArray());
+                    if (WordDictionary.Contains(subWordCandidate) && !_subWords.Contains(subWordCandidate))
+                    {
+                        _subWords.Add(subWordCandidate);
+                    }
                 }
             }
+
+            return _subWords;
         }
     }
 }
